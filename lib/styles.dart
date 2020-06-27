@@ -7,11 +7,13 @@ class CustomStyles {
     color: Colors.white38,
     fontFamily: 'Raleway',
     letterSpacing: 2,
+    fontSize: 12,
   );
 
   static final TextStyle smallTextBlue = TextStyle(
     color: CustomColors.cyan,
     fontFamily: 'Raleway',
     letterSpacing: 2,
+    fontSize: 12,
   );
 }

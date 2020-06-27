@@ -7,11 +7,34 @@ class CustomStyles {
     color: Colors.white38,
     fontFamily: 'Raleway',
     letterSpacing: 2,
+    fontSize: 12,
   );
 
   static final TextStyle smallTextBlue = TextStyle(
     color: CustomColors.cyan,
     fontFamily: 'Raleway',
     letterSpacing: 2,
+    fontSize: 12,
+  );
+
+  static final TextStyle magentaText = TextStyle(
+    color: CustomColors.magenta,
+    fontFamily: 'Raleway',
+    letterSpacing: 2,
+    fontSize: 18,
+  );
+
+  static final TextStyle whiteStyle = TextStyle(
+    color: Colors.white,
+    fontFamily: 'Raleway',
+    letterSpacing: 2,
+    fontSize: 16,
+  );
+
+  static final TextStyle refill = TextStyle(
+    color: CustomColors.green,
+    fontFamily: 'Raleway',
+    letterSpacing: 2,
+    fontSize: 16,
   );
 }

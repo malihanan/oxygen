@@ -8,4 +8,6 @@ class CustomColors {
   static final Color magentaShade = Color.fromRGBO(96, 148, 234, 1);
   static final Color cyanShade = Color.fromRGBO(96, 120, 234, 1);
   static final Color greenShade = Color.fromRGBO(59, 178, 184, 1);
+  static final Color yellow = Color.fromRGBO(252, 227, 138, 1);
+  static final Color yellowShade = Color.fromRGBO(243, 129, 129, 1);
 }

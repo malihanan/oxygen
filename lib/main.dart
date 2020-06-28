@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pocket_plant/global.dart';
 import 'package:pocket_plant/styles.dart';
 import 'package:pocket_plant/widgets/profile.dart';
+import 'package:pocket_plant/widgets/purityTab.dart';
 import 'package:pocket_plant/widgets/tank.dart';
 import 'colors.dart';
 
@@ -17,41 +18,43 @@ class MyApp extends StatelessWidget {
           .copyWith(scaffoldBackgroundColor: CustomColors.darkBlue),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: Column(
+        body: Home(),
+      ),
+    );
+  }
+}
+
+class Home extends StatefulWidget {
+  @override
+  _HomeState createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        MyProfile(),
+        Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            MyProfile(),
-            Column(
-              children: [
-                Tank(
-                  percentage: Oxygen.percentage,
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(32.0),
-                  child: Column(
-                    children: [
-                      Text(
-                        "Purity: " + Oxygen.qualities[Oxygen.qualtiy],
-                        style: CustomStyles.magentaText,
-                      ),
-                      Text(
-                        "Flavor: " + Oxygen.flavours[Oxygen.flavour],
-                        style: CustomStyles.magentaText,
-                      ),
-                    ],
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    refillButton(),
-                  ],
-                ),
-              ],
+          children: <Widget>[
+            PurityTab(
+              isStateful: false,
             ),
+            Tank(
+              percentage: Oxygen.percentage,
+            ),
+            SizedBox(width: MediaQuery.of(context).size.width * 0.08 + 16),
           ],
         ),
-      ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            refillButton(),
+          ],
+        ),
+      ],
     );
   }
 
@@ -73,7 +76,10 @@ class MyApp extends StatelessWidget {
           ],
         ),
       ),
-      onTap: () {},
+      onTap: () {
+        print("Tapp");
+        Oxygen.percentage = 40;
+      },
     );
   }
 }

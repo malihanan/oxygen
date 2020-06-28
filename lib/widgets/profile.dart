@@ -26,7 +26,7 @@ class MyProfile extends StatelessWidget {
                   borderRadius: BorderRadius.circular(100),
                   child: ShaderMask(
                     child: Image(
-                      height: MediaQuery.of(context).size.height * 0.12,
+                      height: MediaQuery.of(context).size.height * 0.1,
                       image: AssetImage(
                         Profile.image,
                       ),

@@ -7,6 +7,7 @@ import 'package:pocket_plant/widgets/purityTab.dart';
 import 'package:pocket_plant/widgets/tank.dart';
 import 'buy.dart';
 import 'colors.dart';
+import 'store.dart';
 
 void main() {
   runApp(MyApp());
@@ -57,7 +58,18 @@ class _HomeState extends State<Home> {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            LinkButton(text: "REFILL", width: 68, onTap: () {}),
+            LinkButton(
+                text: "REFILL",
+                width: 68,
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return StorePage();
+                      },
+                    ),
+                  );
+                }),
             LinkButton(
               text: "BUY",
               width: 38,

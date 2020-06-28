@@ -90,9 +90,12 @@ class _BuyState extends State<Buy> {
               text: "ADD TO STORE",
               width: 142,
               onTap: () {
-                Oxygen.flavour = flavorTab.getFlavor();
-                Oxygen.qualtiy = purityTab.getPurity();
-                Oxygen.percentage = tank.getPercentage();
+                StoreTank st = StoreTank(
+                  flavour: flavorTab.getFlavor(),
+                  qualtiy: purityTab.getPurity(),
+                  percentage: tank.getPercentage(),
+                );
+                Profile.tanks.add(st);
               },
             ),
           ),

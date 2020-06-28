@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomColors {
-  static final Color darkBlue = Color.fromRGBO(3, 9, 20, 1);
+  static final Color darkBlue = Color.fromRGBO(3, 15, 26, 1);
   static final Color magenta = Color.fromRGBO(240, 47, 194, 1);
   static final Color cyan = Color.fromRGBO(23, 234, 217, 1);
   static final Color green = Color.fromRGBO(20, 255, 138, 1);

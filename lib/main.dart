@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pocket_plant/global.dart';
 import 'package:pocket_plant/styles.dart';
+import 'package:pocket_plant/widgets/linkButton.dart';
 import 'package:pocket_plant/widgets/profile.dart';
 import 'package:pocket_plant/widgets/purityTab.dart';
 import 'package:pocket_plant/widgets/tank.dart';
+import 'buy.dart';
 import 'colors.dart';
 
 void main() {
@@ -43,43 +45,35 @@ class _HomeState extends State<Home> {
               isStateful: false,
             ),
             Tank(
-              percentage: Oxygen.percentage,
+              isStateful: false,
             ),
-            SizedBox(width: MediaQuery.of(context).size.width * 0.08 + 16),
+            SizedBox(width: MediaQuery.of(context).size.width * 0.09 + 16),
           ],
         ),
+        Text(
+          'Empties in 2 hours',
+          style: CustomStyles.smallTextBlue,
+        ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            refillButton(),
+            LinkButton(text: "REFILL", width: 68, onTap: () {}),
+            LinkButton(
+              text: "BUY",
+              width: 38,
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return BuyPage();
+                    },
+                  ),
+                );
+              },
+            ),
           ],
         ),
       ],
-    );
-  }
-
-  Widget refillButton() {
-    return GestureDetector(
-      child: Padding(
-        padding: const EdgeInsets.all(32.0),
-        child: Column(
-          children: [
-            Text(
-              "REFILL",
-              style: CustomStyles.refill,
-            ),
-            Container(
-              width: 68,
-              height: 1,
-              color: CustomColors.green,
-            ),
-          ],
-        ),
-      ),
-      onTap: () {
-        print("Tapp");
-        Oxygen.percentage = 40;
-      },
     );
   }
 }

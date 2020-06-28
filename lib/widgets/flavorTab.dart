@@ -2,38 +2,38 @@ import 'package:flutter/material.dart';
 import 'package:pocket_plant/colors.dart';
 import 'package:pocket_plant/global.dart';
 
-class PurityTab extends StatefulWidget {
+class FlavorTab extends StatefulWidget {
   final bool isStateful;
 
-  PurityTab({
+  FlavorTab({
     @required this.isStateful,
   });
 
   @override
-  _PurityTabState createState() => _PurityTabState();
+  _FlavorTabState createState() => _FlavorTabState();
 
-  int getPurity() {
-    return _PurityTabState.quality;
+  int getFlavor() {
+    return _FlavorTabState.flavor;
   }
 }
 
-class _PurityTabState extends State<PurityTab> {
-  static int quality = Oxygen.qualtiy;
+class _FlavorTabState extends State<FlavorTab> {
+  static int flavor = Oxygen.flavour;
 
   @override
   Widget build(BuildContext context) {
     List<Widget> containers = [];
-    for (int i = 2; i >= 0; i--) {
+    for (int i = 0; i < Oxygen.flavours.length; i++) {
       containers.add(Container(
         height: MediaQuery.of(context).size.height * 0.08,
-        width: MediaQuery.of(context).size.width * 0.06,
+        width: MediaQuery.of(context).size.width * 0.12,
         decoration: BoxDecoration(
-          color: quality == i ? CustomColors.green : Colors.transparent,
+          color: flavor == i ? CustomColors.green : Colors.transparent,
           borderRadius: BorderRadius.circular(18),
         ),
         child: Center(
           child: Text(
-            Oxygen.qualities[i][0],
+            Oxygen.flavours[i][0],
             style: TextStyle(
               fontFamily: 'Raleway',
             ),
@@ -75,11 +75,11 @@ class _PurityTabState extends State<PurityTab> {
             //dragged down
             if (_drag > 0) {
               setState(() {
-                quality = (quality - 1) % 3;
+                flavor = (flavor + 1) % Oxygen.flavours.length;
               });
             } else if (_drag < 0) {
               setState(() {
-                quality = (quality + 1) % 3;
+                flavor = (flavor - 1) % Oxygen.flavours.length;
               });
             }
           }

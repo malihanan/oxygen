@@ -32,7 +32,7 @@ class CustomStyles {
   );
 
   static final TextStyle refill = TextStyle(
-    color: CustomColors.green,
+    color: CustomColors.magenta,
     fontFamily: 'Raleway',
     letterSpacing: 2,
     fontSize: 16,

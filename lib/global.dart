@@ -15,7 +15,7 @@ class Oxygen {
     "Strawberry"
   ];
 
-  static int percentage = 70;
+  static int percentage = 95;
   static int qualtiy = 1;
   static int flavour = 0;
 }

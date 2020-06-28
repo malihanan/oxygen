@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pocket_plant/colors.dart';
 
 import '../global.dart';
 import '../styles.dart';
@@ -9,25 +10,36 @@ class MyProfile extends StatelessWidget {
     return SafeArea(
       child: Row(
         children: <Widget>[
-          CustomPaint(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.2,
-                width: MediaQuery.of(context).size.height * 0.2,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('images/rings.png'),
-                    fit: BoxFit.contain,
-                  ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Container(
+              height: MediaQuery.of(context).size.height * 0.2,
+              width: MediaQuery.of(context).size.height * 0.2,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('images/rings.png'),
+                  fit: BoxFit.contain,
                 ),
-                child: Center(
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Image.asset(
-                      Profile.image,
+              ),
+              child: Center(
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                  child: ShaderMask(
+                    child: Image(
                       height: MediaQuery.of(context).size.height * 0.12,
+                      image: AssetImage(
+                        Profile.image,
+                      ),
                     ),
+                    shaderCallback: (Rect bounds) {
+                      return LinearGradient(
+                        colors: [
+                          CustomColors.magenta,
+                          CustomColors.magentaShade,
+                        ],
+                      ).createShader(bounds);
+                    },
+                    blendMode: BlendMode.modulate,
                   ),
                 ),
               ),
@@ -50,10 +62,30 @@ class MyProfile extends StatelessWidget {
                 Profile.address,
                 style: CustomStyles.smallText,
               ),
+              SizedBox(height: 2),
+              Row(
+                children: <Widget>[
+                  Icon(
+                    Icons.monetization_on,
+                    size: 20,
+                    color: Color.fromRGBO(249, 166, 2, 1),
+                  ),
+                  Text(
+                    " " + Profile.coins.toString(),
+                    style: CustomStyles.smallText,
+                  ),
+                ],
+              ),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 8.0),
                 child: getColorLine(),
-              )
+              ),
+              Text(
+                Oxygen.qualities[Oxygen.qualtiy] +
+                    " Quality, " +
+                    Oxygen.flavours[Oxygen.flavour],
+                style: CustomStyles.smallText,
+              ),
             ],
           )
         ],

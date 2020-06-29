@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:pocket_plant/colors.dart';
-import 'package:pocket_plant/global.dart';
-import 'package:pocket_plant/styles.dart';
+import '../colors.dart';
+import '../global.dart';
+import '../styles.dart';
 
 class Tank extends StatefulWidget {
   final bool isStateful;

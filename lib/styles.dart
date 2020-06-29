@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:pocket_plant/colors.dart';
+import 'colors.dart';
 
 class CustomStyles {
   static final TextStyle smallText = TextStyle(

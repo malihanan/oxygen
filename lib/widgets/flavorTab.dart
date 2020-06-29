@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pocket_plant/colors.dart';
-import 'package:pocket_plant/global.dart';
-import 'package:pocket_plant/styles.dart';
+import '../global.dart';
 
 class FlavorTab extends StatefulWidget {
   final bool isStateful;

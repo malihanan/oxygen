@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pocket_plant/widgets/linkButton.dart';
+import 'widgets/linkButton.dart';
 
 import 'colors.dart';
 import 'global.dart';

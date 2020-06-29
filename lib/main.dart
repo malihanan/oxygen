@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:pocket_plant/global.dart';
-import 'package:pocket_plant/styles.dart';
-import 'package:pocket_plant/widgets/linkButton.dart';
-import 'package:pocket_plant/widgets/profile.dart';
-import 'package:pocket_plant/widgets/purityTab.dart';
-import 'package:pocket_plant/widgets/tank.dart';
+import 'global.dart';
+import 'styles.dart';
+import 'widgets/linkButton.dart';
+import 'widgets/profile.dart';
+import 'widgets/purityTab.dart';
+import 'widgets/tank.dart';
 import 'buy.dart';
 import 'colors.dart';
 import 'store.dart';

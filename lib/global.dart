@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pocket_plant/colors.dart';
+import 'colors.dart';
 
 class Profile {
   static String id = "IM4e692hgfb454Fhj38";

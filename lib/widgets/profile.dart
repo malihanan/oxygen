@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pocket_plant/colors.dart';
+import '../colors.dart';
 
 import '../global.dart';
 import '../styles.dart';

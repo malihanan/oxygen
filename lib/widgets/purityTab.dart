@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:pocket_plant/colors.dart';
-import 'package:pocket_plant/global.dart';
+import '../colors.dart';
+import '../global.dart';
 
 class PurityTab extends StatefulWidget {
   final bool isStateful;

@@ -16,7 +16,7 @@ class LinkButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return FlatButton(
       child: Container(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 48),
@@ -35,7 +35,8 @@ class LinkButton extends StatelessWidget {
           ),
         ),
       ),
-      onTap: onTap,
+      onPressed: onTap,
+      highlightColor: Colors.transparent,
     );
   }
 }

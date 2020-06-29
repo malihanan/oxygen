@@ -53,6 +53,8 @@ class _HomeState extends State<Home> {
                 ),
                 Tank(
                   isStateful: false,
+                  flavor: Oxygen.flavour,
+                  percentage: Oxygen.percentage,
                 ),
                 SizedBox(width: MediaQuery.of(context).size.width * 0.09 + 16),
               ],

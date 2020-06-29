@@ -15,11 +15,14 @@ class Buy extends StatefulWidget {
 
 class _BuyState extends State<Buy> {
   int quality = Oxygen.qualtiy;
+
   PurityTab purityTab = PurityTab(
     isStateful: true,
   );
   Tank tank = Tank(
     isStateful: true,
+    flavor: Oxygen.flavour,
+    percentage: Oxygen.percentage,
   );
   FlavorTab flavorTab = FlavorTab(
     isStateful: true,
@@ -76,8 +79,13 @@ class _BuyState extends State<Buy> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
                     purityTab,
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.31 -
+                          MediaQuery.of(context).size.width * 0.06 -
+                          96,
+                    ),
                     tank,
-                    flavorTab,
+                    getFlavorTab(),
                   ],
                 ),
                 GestureDetector(
@@ -100,6 +108,79 @@ class _BuyState extends State<Buy> {
           );
         }),
       ),
+    );
+  }
+
+  Widget getFlavorTab() {
+    List<Widget> containers = [];
+    for (int i = 0; i < Oxygen.flavours.length; i++) {
+      containers.add(Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8.0),
+        child: Row(
+          children: <Widget>[
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  tank = Tank(
+                    flavor: i,
+                    percentage: tank.getPercentage(),
+                    isStateful: true,
+                  );
+                });
+              },
+              child: Container(
+                height: 50,
+                width: MediaQuery.of(context).size.width * 0.11,
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: CustomColors.magenta,
+                    width: 1,
+                    style: BorderStyle.solid,
+                  ),
+                  borderRadius: BorderRadius.circular(100),
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(6.0),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(colors: Oxygen.fluidColor[i]),
+                      borderRadius: BorderRadius.circular(100),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width * 0.2,
+              height: 20,
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color: CustomColors.magenta,
+                    style: BorderStyle.solid,
+                    width: 1,
+                  ),
+                  bottom: BorderSide(
+                    color: CustomColors.magenta,
+                    style: BorderStyle.solid,
+                    width: 1,
+                  ),
+                ),
+              ),
+              child: Center(
+                child: Text(
+                  Oxygen.flavours[i],
+                  style: CustomStyles.smallText,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ));
+    }
+
+    return Column(
+      children: containers,
     );
   }
 }

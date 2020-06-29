@@ -74,6 +74,7 @@ class _StoreState extends State<Store> {
                               text: "Fill",
                               width: 48,
                               onTap: () {
+                                print("fill tapped");
                                 Oxygen.flavour = selectedTank.flavour;
                                 Oxygen.percentage = selectedTank.percentage;
                                 Oxygen.qualtiy = selectedTank.qualtiy;

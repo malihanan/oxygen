@@ -53,11 +53,13 @@ class _HomeState extends State<Home> {
 
   decreasePercentage() {
     setState(() {
-      tank = Tank(
-        flavor: Oxygen.flavour,
-        percentage: p - 1,
-      );
-      p--;
+      if (p > 10) {
+        tank = Tank(
+          flavor: Oxygen.flavour,
+          percentage: p - 1,
+        );
+        p--;
+      }
     });
   }
 

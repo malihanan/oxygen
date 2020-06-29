@@ -54,7 +54,7 @@ class _StoreState extends State<Store> {
                     ],
                   ),
                   Container(
-                    height: MediaQuery.of(context).size.height - 320,
+                    height: MediaQuery.of(context).size.height - 290,
                     child: ListView(
                       children: items,
                     ),
@@ -74,10 +74,17 @@ class _StoreState extends State<Store> {
                               text: "Fill",
                               width: 48,
                               onTap: () {
-                                print("fill tapped");
+                                if (Oxygen.percentage > 0) {
+                                  Profile.tanks.add(StoreTank(
+                                    percentage: Oxygen.percentage,
+                                    qualtiy: Oxygen.qualtiy,
+                                    flavour: Oxygen.flavour,
+                                  ));
+                                }
                                 Oxygen.flavour = selectedTank.flavour;
                                 Oxygen.percentage = selectedTank.percentage;
                                 Oxygen.qualtiy = selectedTank.qualtiy;
+                                Profile.tanks.remove(selectedTank);
                                 Navigator.of(context).popAndPushNamed('/');
                               },
                             ),

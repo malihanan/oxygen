@@ -52,7 +52,6 @@ class _HomeState extends State<Home> {
                   isStateful: false,
                 ),
                 Tank(
-                  isStateful: false,
                   flavor: Oxygen.flavour,
                   percentage: Oxygen.percentage,
                 ),
@@ -60,7 +59,7 @@ class _HomeState extends State<Home> {
               ],
             ),
             Text(
-              'Empties in 2 hours',
+              'Empties in ' + (Oxygen.percentage * 5).toString() + ' seconds',
               style: CustomStyles.smallTextBlue,
             ),
             Row(
@@ -72,11 +71,6 @@ class _HomeState extends State<Home> {
                     onTap: () {
                       Navigator.of(context).popAndPushNamed(
                         '/store',
-                        // MaterialPageRoute(
-                        //   builder: (context) {
-                        //     return StorePage();
-                        //   },
-                        // ),
                       );
                     }),
                 LinkButton(
@@ -85,11 +79,6 @@ class _HomeState extends State<Home> {
                   onTap: () {
                     Navigator.of(context).popAndPushNamed(
                       '/buy',
-                      // MaterialPageRoute(
-                      //   builder: (context) {
-                      //     return BuyPage();
-                      //   },
-                      // ),
                     );
                   },
                 ),

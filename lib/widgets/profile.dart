@@ -4,7 +4,12 @@ import 'package:pocket_plant/colors.dart';
 import '../global.dart';
 import '../styles.dart';
 
-class MyProfile extends StatelessWidget {
+class MyProfile extends StatefulWidget {
+  @override
+  _MyProfileState createState() => _MyProfileState();
+}
+
+class _MyProfileState extends State<MyProfile> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -85,6 +90,38 @@ class MyProfile extends StatelessWidget {
                     " Quality, " +
                     Oxygen.flavours[Oxygen.flavour],
                 style: CustomStyles.smallText,
+              ),
+              FlatButton(
+                padding: EdgeInsets.all(0),
+                onPressed: () {
+                  setState(() {
+                    Profile.coins += 100;
+                  });
+                },
+                child: Row(
+                  children: [
+                    Icon(
+                      Icons.add,
+                      color: CustomColors.magenta,
+                      size: 20,
+                    ),
+                    Column(
+                      children: [
+                        Text(
+                          'Add Coins',
+                          style: TextStyle(
+                              color: CustomColors.magenta,
+                              fontFamily: 'Raleway'),
+                        ),
+                        Container(
+                          color: CustomColors.green,
+                          height: 1,
+                          width: 70,
+                        )
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           )

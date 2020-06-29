@@ -19,7 +19,7 @@ class LinkButton extends StatelessWidget {
     return FlatButton(
       child: Container(
         child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 48),
+          padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 32),
           child: Column(
             children: [
               Text(

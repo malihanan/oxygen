@@ -17,20 +17,22 @@ class LinkButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      child: Padding(
-        padding: const EdgeInsets.all(32.0),
-        child: Column(
-          children: [
-            Text(
-              text,
-              style: CustomStyles.refill,
-            ),
-            Container(
-              width: width,
-              height: 1,
-              color: CustomColors.green,
-            ),
-          ],
+      child: Container(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 32.0, horizontal: 48),
+          child: Column(
+            children: [
+              Text(
+                text,
+                style: CustomStyles.refill,
+              ),
+              Container(
+                width: width,
+                height: 1,
+                color: CustomColors.green,
+              ),
+            ],
+          ),
         ),
       ),
       onTap: onTap,

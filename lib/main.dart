@@ -20,9 +20,12 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark()
           .copyWith(scaffoldBackgroundColor: CustomColors.darkBlue),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: Home(),
-      ),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => Home(),
+        '/buy': (context) => Buy(),
+        '/store': (context) => Store(),
+      },
     );
   }
 }
@@ -35,57 +38,64 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        MyProfile(),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            PurityTab(
-              isStateful: false,
-            ),
-            Tank(
-              isStateful: false,
-            ),
-            SizedBox(width: MediaQuery.of(context).size.width * 0.09 + 16),
-          ],
-        ),
-        Text(
-          'Empties in 2 hours',
-          style: CustomStyles.smallTextBlue,
-        ),
-        Row(
+    setState(() {});
+    return Scaffold(
+      body: Builder(builder: (context) {
+        return Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            LinkButton(
-                text: "REFILL",
-                width: 68,
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return StorePage();
-                      },
-                    ),
-                  );
-                }),
-            LinkButton(
-              text: "BUY",
-              width: 38,
-              onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return BuyPage();
-                    },
-                  ),
-                );
-              },
+            MyProfile(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                PurityTab(
+                  isStateful: false,
+                ),
+                Tank(
+                  isStateful: false,
+                ),
+                SizedBox(width: MediaQuery.of(context).size.width * 0.09 + 16),
+              ],
+            ),
+            Text(
+              'Empties in 2 hours',
+              style: CustomStyles.smallTextBlue,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                LinkButton(
+                    text: "REFILL",
+                    width: 68,
+                    onTap: () {
+                      Navigator.of(context).popAndPushNamed(
+                        '/store',
+                        // MaterialPageRoute(
+                        //   builder: (context) {
+                        //     return StorePage();
+                        //   },
+                        // ),
+                      );
+                    }),
+                LinkButton(
+                  text: "BUY",
+                  width: 38,
+                  onTap: () {
+                    Navigator.of(context).popAndPushNamed(
+                      '/buy',
+                      // MaterialPageRoute(
+                      //   builder: (context) {
+                      //     return BuyPage();
+                      //   },
+                      // ),
+                    );
+                  },
+                ),
+              ],
             ),
           ],
-        ),
-      ],
+        );
+      }),
     );
   }
 }

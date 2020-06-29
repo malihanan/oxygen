@@ -48,7 +48,7 @@ class _HomeState extends State<Home> {
     );
 
     Timer t = new Timer.periodic(
-        Duration(seconds: 1), (Timer t) => decreasePercentage());
+        Duration(seconds: 2), (Timer t) => decreasePercentage());
   }
 
   decreasePercentage() {
@@ -82,10 +82,15 @@ class _HomeState extends State<Home> {
                 SizedBox(width: MediaQuery.of(context).size.width * 0.09 + 16),
               ],
             ),
-            Text(
-              'Empties in ' + (Oxygen.percentage * 5).toString() + ' seconds',
-              style: CustomStyles.smallTextBlue,
-            ),
+            (p > 10)
+                ? Text(
+                    'Empties in ' + (p * 1).toString() + ' seconds',
+                    style: CustomStyles.smallTextBlue,
+                  )
+                : Text(
+                    'Rest in Peace',
+                    style: CustomStyles.smallTextBlue,
+                  ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

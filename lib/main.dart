@@ -8,6 +8,7 @@ import 'widgets/tank.dart';
 import 'buy.dart';
 import 'colors.dart';
 import 'store.dart';
+import 'dart:async';
 
 void main() {
   runApp(MyApp());
@@ -36,6 +37,32 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  Tank tank;
+  int p = Oxygen.percentage;
+  @override
+  void initState() {
+    super.initState();
+    tank = Tank(
+      flavor: Oxygen.flavour,
+      percentage: p - 1,
+    );
+
+    Timer t = new Timer.periodic(
+        Duration(seconds: 1), (Timer t) => decreasePercentage());
+  }
+
+  decreasePercentage() {
+    setState(() {
+      if (p > 10) {
+        tank = Tank(
+          flavor: Oxygen.flavour,
+          percentage: p - 1,
+        );
+        p--;
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     setState(() {});
@@ -51,10 +78,7 @@ class _HomeState extends State<Home> {
                 PurityTab(
                   isStateful: false,
                 ),
-                Tank(
-                  flavor: Oxygen.flavour,
-                  percentage: Oxygen.percentage,
-                ),
+                tank,
                 SizedBox(width: MediaQuery.of(context).size.width * 0.09 + 16),
               ],
             ),
